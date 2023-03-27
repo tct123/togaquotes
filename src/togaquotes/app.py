@@ -6,6 +6,7 @@ from toga.style import Pack
 from toga.style.pack import COLUMN, ROW
 
 
+
 class TogaQuotes(toga.App):
 
     def startup(self):
