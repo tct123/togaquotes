@@ -4,7 +4,7 @@ My first application
 import toga
 from toga.style import Pack
 from toga.style.pack import COLUMN, ROW
-
+import quotesgeneratorapi_wrapper.main
 
 
 class TogaQuotes(toga.App):
