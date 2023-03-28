@@ -18,7 +18,10 @@ class TogaQuotes(toga.App):
         show the main window.
         """
         main_box = toga.Box()
-        textbox = toga.Label(text=quotesgeneratorapi_wrapper.main.getQuotes(category, api_key))
+        content = "Here could be a qoute"
+        textbox = toga.Label(text=f"{content}\n{toga.platform.current_platform}")
+        main_box.add(textbox)
+        
 
         self.main_window = toga.MainWindow(title=self.formal_name)
         self.main_window.content = main_box
