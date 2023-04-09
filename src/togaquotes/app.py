@@ -19,7 +19,7 @@ class TogaQuotes(toga.App):
         """
         main_box = toga.Box()
         content = "Here could be a qoute"
-        textbox = toga.Label(text=f"{content}\n{toga.platform.current_platform}")
+        textbox = toga.Label(text=content)
         main_box.add(textbox)
         
 
