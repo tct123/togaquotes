@@ -4,6 +4,7 @@ My first application
 import toga
 from toga.style import Pack
 from toga.style.pack import COLUMN, ROW
+import quotesgeneratorapi_wrapper
 
 
 class TogaQuotes(toga.App):
@@ -17,6 +18,7 @@ class TogaQuotes(toga.App):
         show the main window.
         """
         main_box = toga.Box()
+        self.qoutegen = quotesgeneratorapi_wrapper.getQuotes(category="happienes")
         content = "Here could be a qoute"
         textbox = toga.Label(text=content)
         main_box.add(textbox)
