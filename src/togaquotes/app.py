@@ -27,7 +27,9 @@ class TogaQuotes(toga.App):
         except:
             content = "Check your Connection"
             author = ""
-        self.quote = toga.MultilineTextInput(readonly=True)
+        self.quote = toga.MultilineTextInput(
+            readonly=True, value=content, style=Pack(padding=5)
+        )
         self.quoteauthor = toga.Label(text=quoteauthor, style=Pack(padding=5))
         refreshbtn = toga.Button(
             text="Refresh", on_press=self.get, style=Pack(padding=5)
