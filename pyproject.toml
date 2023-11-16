@@ -1,4 +1,4 @@
-# This project was generated with Unknown using template: https://github.com/beeware/briefcase-template@v0.3.13
+# This project was generated with 0.3.16 using template: https://github.com/beeware/briefcase-template@v0.3.16
 [tool.briefcase]
 project_name = "Toga Quotes"
 bundle = "de.cmg"
@@ -22,48 +22,47 @@ test_sources = [
 ]
 
 requires = [
-    "quotesgeneratorapi-wrapper"
 ]
 test_requires = [
     "pytest",
 ]
 
 [tool.briefcase.app.togaquotes.macOS]
+universal_build = true
 requires = [
-    "toga-cocoa~=0.3.1",
+    "toga-cocoa~=0.4.0",
     "std-nslog~=1.0.0"
 ]
 
 [tool.briefcase.app.togaquotes.linux]
 requires = [
-    "toga-gtk~=0.3.1",
+    "toga-gtk~=0.4.0",
 ]
 
 [tool.briefcase.app.togaquotes.linux.system.debian]
 system_requires = [
     # Needed to compile pycairo wheel
-    'libcairo2-dev',
+    "libcairo2-dev",
     # Needed to compile PyGObject wheel
-    'libgirepository1.0-dev',
+    "libgirepository1.0-dev",
 ]
 
 system_runtime_requires = [
-    # Needed to provide GTK
-    "libgtk-3-0",
-    # Needed to provide GI bindings to GTK
-    "libgirepository-1.0-1",
+    # Needed to provide GTK and its GI bindings
     "gir1.2-gtk-3.0",
+    "libgirepository-1.0-1",
+    # Dependencies that GTK looks for at runtime
+    "libcanberra-gtk3-module",
     # Needed to provide WebKit2 at runtime
-    # "libwebkit2gtk-4.0-37",
     # "gir1.2-webkit2-4.0",
 ]
 
 [tool.briefcase.app.togaquotes.linux.system.rhel]
 system_requires = [
     # Needed to compile pycairo wheel
-    'cairo-gobject-devel',
+    "cairo-gobject-devel",
     # Needed to compile PyGObject wheel
-    'gobject-introspection-devel',
+    "gobject-introspection-devel",
 ]
 
 system_runtime_requires = [
@@ -71,35 +70,74 @@ system_runtime_requires = [
     "gobject-introspection",
     # Needed to provide GTK
     "gtk3",
+    # Dependencies that GTK looks for at runtime
+    "libcanberra-gtk3",
     # Needed to provide WebKit2 at runtime
     # "webkit2gtk3",
+]
+
+[tool.briefcase.app.togaquotes.linux.system.suse]
+system_requires = [
+    # Needed to compile pycairo wheel
+    "cairo-devel",
+    # Needed to compile PyGObject wheel
+    "gobject-introspection-devel",
+]
+
+system_runtime_requires = [
+    # Needed to provide GTK
+    "gtk3",
+    # Needed to support Python bindings to GTK
+    "gobject-introspection", "typelib(Gtk)=3.0",
+    # Dependencies that GTK looks for at runtime
+    "libcanberra-gtk3-0",
+    # Needed to provide WebKit2 at runtime
+    # "libwebkit2gtk3",
+    # "typelib(WebKit2)",
 ]
 
 [tool.briefcase.app.togaquotes.linux.system.arch]
 system_requires = [
     # Needed to compile pycairo wheel
-    'cairo',
+    "cairo",
     # Needed to compile PyGObject wheel
-    'gobject-introspection',
+    "gobject-introspection",
+    # Runtime dependencies that need to exist so that the
+    # Arch package passes final validation.
+    # Needed to provide GTK
+    "gtk3",
+    # Dependencies that GTK looks for at runtime
+    "libcanberra",
+    # Needed to provide WebKit2
+    # "webkit2gtk",
 ]
 
 system_runtime_requires = [
     # Needed to provide GTK
-    "gtk",
+    "gtk3",
+    # Needed to provide PyGObject bindings
+    "gobject-introspection-runtime",
+    # Dependencies that GTK looks for at runtime
+    "libcanberra",
     # Needed to provide WebKit2 at runtime
     # "webkit2gtk",
 ]
 
 [tool.briefcase.app.togaquotes.linux.appimage]
+manylinux = "manylinux2014"
+
 system_requires = [
-    "libcairo2-dev",
-    "libgirepository1.0-dev",
-    "libgtk-3-dev",
-    "libpango1.0-dev",
-    "librsvg2-dev",
-    # Needed to support Webkit2
-    # "gir1.2-webkit2-4.0",
-    # "libwebkit2gtk-4.0-dev",
+    # Needed to compile pycairo wheel
+    "cairo-gobject-devel",
+    # Needed to compile PyGObject wheel
+    "gobject-introspection-devel",
+    # Needed to provide GTK
+    "gtk3-devel",
+    # Dependencies that GTK looks for at runtime, that need to be
+    # in the build environment to be picked up by linuxdeploy
+    "libcanberra-gtk3",
+    "PackageKit-gtk3-module",
+    "gvfs-client",
 ]
 linuxdeploy_plugins = [
     "DEPLOY_GTK_VERSION=3 gtk",
@@ -107,37 +145,29 @@ linuxdeploy_plugins = [
 
 [tool.briefcase.app.togaquotes.linux.flatpak]
 flatpak_runtime = "org.gnome.Platform"
-flatpak_runtime_version = "42"
+flatpak_runtime_version = "44"
 flatpak_sdk = "org.gnome.Sdk"
 
 [tool.briefcase.app.togaquotes.windows]
 requires = [
-    "toga-winforms~=0.3.1",
+    "toga-winforms~=0.4.0",
 ]
 
 # Mobile deployments
 [tool.briefcase.app.togaquotes.iOS]
 requires = [
-    "toga-iOS~=0.3.1",
+    "toga-iOS~=0.4.0",
     "std-nslog~=1.0.0"
 ]
 
 [tool.briefcase.app.togaquotes.android]
 requires = [
-    "toga-android~=0.3.1"
+    "toga-android~=0.4.0"
 ]
 
 # Web deployments
 [tool.briefcase.app.togaquotes.web]
 requires = [
-    "toga-web~=0.3.1",
+    "toga-web~=0.4.0",
 ]
-style_framework = "Bootstrap v4.6"
-
-# 2023-02-26: This is a workaround for briefcase#1089/pyscript#1204.
-extra_pyscript_toml_content = """
-[[runtimes]]
-src = "https://cdn.jsdelivr.net/pyodide/v0.22.1/full/pyodide.js"
-name = "Python runtime"
-lang = "python"
-"""
+style_framework = "Shoelace v2.3"
