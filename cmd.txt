@@ -1,0 +1,1 @@
+python3 -m briefcase run -u -r --update-support --update-resources
