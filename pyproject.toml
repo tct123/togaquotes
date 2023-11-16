@@ -22,6 +22,7 @@ test_sources = [
 ]
 
 requires = [
+    "quotesgeneratorapi-wrapper"
 ]
 test_requires = [
     "pytest",
