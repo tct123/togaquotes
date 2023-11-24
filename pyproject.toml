@@ -3,7 +3,7 @@
 project_name = "Toga Quotes"
 bundle = "de.cmg"
 version = "0.0.1"
-url = "https://cmg.de/togaquotes"
+url = "https://github.com/tct123/togaquotes"
 license = "Other"
 author = "tct123"
 author_email = "tct1234@protonmail.com"
