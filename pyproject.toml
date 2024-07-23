@@ -31,13 +31,13 @@ test_requires = [
 [tool.briefcase.app.togaquotes.macOS]
 universal_build = true
 requires = [
-    "toga-cocoa~=0.4.0",
+    "toga-cocoa~=0.4.5",
     "std-nslog~=1.0.0"
 ]
 
 [tool.briefcase.app.togaquotes.linux]
 requires = [
-    "toga-gtk~=0.4.0",
+    "toga-gtk~=0.4.5",
 ]
 
 [tool.briefcase.app.togaquotes.linux.system.debian]
@@ -151,24 +151,24 @@ flatpak_sdk = "org.gnome.Sdk"
 
 [tool.briefcase.app.togaquotes.windows]
 requires = [
-    "toga-winforms~=0.4.0",
+    "toga-winforms~=0.4.5",
 ]
 
 # Mobile deployments
 [tool.briefcase.app.togaquotes.iOS]
 requires = [
-    "toga-iOS~=0.4.0",
+    "toga-iOS~=0.4.5",
     "std-nslog~=1.0.0"
 ]
 
 [tool.briefcase.app.togaquotes.android]
 requires = [
-    "toga-android~=0.4.0"
+    "toga-android~=0.4.5"
 ]
 
 # Web deployments
 [tool.briefcase.app.togaquotes.web]
 requires = [
-    "toga-web~=0.4.0",
+    "toga-web~=0.4.5",
 ]
 style_framework = "Shoelace v2.3"
