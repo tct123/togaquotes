@@ -23,14 +23,14 @@ class TogaQuotes(toga.App):
                 category="happiness", api_key="As3XyZ3Xl3IEUqpyUHpa6A==phjO5S4DqLxtFeqk"
             )
             content = self.qoutegen
-            content, quoteauthor = content.split(sep="\n\n")
+            content, author = content.split(sep="\n\n")
         except:
             content = "Check your Connection"
             author = ""
         self.quote = toga.MultilineTextInput(
             readonly=True, value=content, style=Pack(padding=5)
         )
-        self.quoteauthor = toga.Label(text=quoteauthor, style=Pack(padding=5))
+        self.quoteauthor = toga.Label(text=author, style=Pack(padding=5))
         refreshbtn = toga.Button(
             text="Refresh", on_press=self.get, style=Pack(padding=5)
         )
@@ -49,12 +49,12 @@ class TogaQuotes(toga.App):
                 category="happiness", api_key="As3XyZ3Xl3IEUqpyUHpa6A==phjO5S4DqLxtFeqk"
             )
             content = self.qoutegen
-            content, quoteauthor = content.split(sep="\n\n")
+            content, author = content.split(sep="\n\n")
         except:
             content = "Check your Connection"
             author = ""
         self.quote.value = content
-        self.quoteauthor.text
+        self.quoteauthor.text = author
 
 
 def main():
